@@ -31,20 +31,20 @@ func main() {
 		conn, err := tun.Accept()
 
 		if err != nil {
-			log.Printf("failed to accept connection from %s. err:", err)
+			//log.Printf("failed to accept connection from %s. err:", err)
 			continue
 		}
 
-		log.Println("accepted connection from", conn.RemoteAddr())
+		//log.Println("accepted connection from", conn.RemoteAddr())
 
 		go func() {
 			err := handleConn(ctx, "minecraft-server.railway.internal:25565", conn)
 			if err != nil {
-				log.Printf("connection closed with error from %s. ERR: %d\n", conn.RemoteAddr(), err)
+				//log.Printf("connection closed with error from %s. ERR: %d\n", conn.RemoteAddr(), err)
 				return
 			}
 
-			log.Printf("connection closed from %s\n", conn.RemoteAddr())
+			//log.Printf("connection closed from %s\n", conn.RemoteAddr())
 		}()
 	}
 }
